@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  problem-2.cpp
+c:\project-euler\problem-2\problem-2\problem-2.cpp(5): warning C4244: 'return': conversion from 'unsigned __int64' to 'int', possible loss of data
+  problem-2.vcxproj -> C:\project-euler\problem-2\Debug\problem-2.exe
