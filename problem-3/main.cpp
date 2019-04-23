@@ -59,7 +59,6 @@ int main() {
     std::vector<uint64_t> vec;
     for_each_leaf(&root, [&vec](uint64_t leaf){ vec.push_back(leaf); });
 
-
     std::cout << *std::max_element(vec.begin(), vec.end()) << std::endl;
     return 0;
 }
