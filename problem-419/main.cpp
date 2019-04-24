@@ -4,19 +4,11 @@
 #include <iterator>
 #include <string>
 #include <numeric>
-
+#include <fstream>
 
 
 using element_t = std::vector<uint8_t>;
 using element_t_it = element_t::const_iterator;
-
-std::ostream& operator<<(std::ostream& out, const element_t& element) {
-    out << "Element: ";
-    for (auto i : element) {
-        out << unsigned(i) << ' ';
-    }
-    return out;
-}
 
 struct group {
     uint8_t size;
@@ -72,13 +64,24 @@ int count(element_t& element, const int num) {
     return count;
 }
 
+std::ostream& operator<<(std::ostream& out, const element_t& element) {
+    for (auto i : element) {
+        out << unsigned(i);
+    }
+    return out;
+}
+
 int main() {
     const element_t start = {1};
     element_t iter = start;
-    for (uint64_t i = 0; i < 1000000000000 - 1; i++) {
+
+    std::ofstream fout;
+    fout.open("out.txt");
+    for (uint64_t i = 0; i < 30 - 1; i++) {
+        fout << iter << '\n';
         iter = next(iter);
     }
-
+    fout << std::flush;
     std::cout << count(iter, 1) << ',' << count(iter, 2) << ',' << count(iter, 3) << '\n';
     return 0;
 }
