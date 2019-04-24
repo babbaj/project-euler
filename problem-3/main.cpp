@@ -11,7 +11,7 @@ struct TreeNode {
 };
 
 std::pair<uint64_t, std::optional<uint64_t>> factor(const uint64_t n) {
-    for (uint64_t left = 2; left < n / 2; left++) {
+    for (uint64_t left = 2; left <= sqrt(n); left++) {
         if (n % left == 0) {
             return {left, n / left};
         }
